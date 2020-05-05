@@ -11,9 +11,11 @@ async def on_ready():
     print(f"Toothless dev is currently in {len(bot.guilds)} guilds")
     print('Bot has started successfully')
 
-@bot.command(name="ping", aliases=["latency"], brief="Shows latency from bot!")
+@bot.command(name="ping", aliases=["latency", "ms"], brief="Shows latency from bot")
 async def greet_back_command(ctx):
-   await ctx.send(f'bot ping: **{bot.latency:.2f}**ms')
+  embed=discord.Embed(title="ping", description="ToothlessDEV latency", color=0x00ff00)
+  embed.add_field(name="Ping:", value=f'**{bot.latency:.2f}**ms')
+  await ctx.send(embed=embed)
 
 @bot.command(name="invite", aliases=["inv"], brief="Shows the bot's oauth link")
 async def greet_back_command(ctx):
