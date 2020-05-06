@@ -31,15 +31,24 @@ async def greet_back_command(ctx):
 	embed.add_field(name="More:", value="Coming soon...", inline=False)
 	await ctx.send(embed=embed)
 
-@bot.command(name="av", aliases=["avatar"], brief="shows user avatar.")
-async def greet_back_command(ctx):
-    await ctx.send(f"User avatar of **{(ctx.message.mentions[0].name)}**:\n{(ctx.message.mentions[0].avatar_url)}")
-
 @bot.command()
 async def get_id(ctx, member: discord.Member):
   user_id = member.id
   await ctx.send('The user id is %d.' % user_id)
   
+@bot.command(aliases=['av'])
+async def avatar(ctx, *, user: discord.Member=None):
+    if user is None:
+      user = ctx.author
+    else:
+      user = user
+      
+      eA = discord.Embed(title='Avatar', 
+      color=discord.Color.green())
+      eA.set_author(name=user, icon_url=user.avatar_url)
+      eA.set_image(url=user.avatar_url)
+      await ctx.send(embed=eA)
+
 import config
 
 bot.run(config.token)
