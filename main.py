@@ -12,19 +12,19 @@ async def on_ready():
     print('Bot has started successfully')
 
 @bot.command(name="ping", aliases=["latency", "ms"], brief="Shows latency from bot")
-async def greet_back_command(ctx):
+async def ping(ctx):
   embed=discord.Embed(title="ping", description="ToothlessDEV latency", color=0x00ff00)
   embed.add_field(name="Ping:", value=f'**{bot.latency:.2f}**ms')
   await ctx.send(embed=embed)
 
 @bot.command(name="invite", aliases=["inv"], brief="Shows the bot's oauth link")
-async def greet_back_command(ctx):
+async def invite(ctx):
   embed=discord.Embed(title="Toothless DEV invite", description="For private use only", color=0x00ff00)
   embed.add_field(name="Invite link", value="https://discord.com/api/oauth2/authorize?client_id=707216713581592631&permissions=8&scope=bot", inline=True)
   await ctx.send(embed=embed)
 
 @bot.command(name="stats", aliases=["statistics"], brief="shows bot statistics.")
-async def greet_back_command(ctx):
+async def statistics(ctx):
 	embed=discord.Embed(title="Statistics Toothless:", description="Global Bot Statistics", color=0x00ff00)
 	embed.add_field(name="Total Guilds", value=len(bot.guilds), inline=False)
 	embed.add_field(name="Total users", value=len(bot.users), inline=False)
