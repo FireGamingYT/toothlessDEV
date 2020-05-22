@@ -49,6 +49,8 @@ async def avatar(ctx, *, user: discord.Member=None):
       eA.set_image(url=user.avatar_url)
       await ctx.send(embed=eA)
 
+print(discord.__version__)	
+	
 import config
 
 bot.run(config.token)
